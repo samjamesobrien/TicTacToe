@@ -11,6 +11,8 @@ import tictactoe.game.entity.Game.PlayerType;
 import tictactoe.game.entity.GameRepository;
 import tictactoe.user.entity.AppUser;
 
+import static tictactoe.game.BoardUtil.getAllLines;
+
 @Service
 public class GameService {
 
@@ -50,13 +52,11 @@ public class GameService {
         return gameRepository.findFirstByAppUserOrderByIdDesc(appUser);
     }
 
-    public void takeTurnRandom(Game game) {
-        String tileId = BoardUtil.getRandomAvailableTile(game.getRows());
-        if (tileId != null) {
-            takeTurn(game, tileId);
-        }
-    }
-
+    /**
+     * On the given {@link Game}, place the next move based on tileId.
+     * @param game {@link Game} which includes the state of play.
+     * @param tileId {@link String} in the format "{row index}-{column index}", eg. "0-0" is the top left, "2-2" bottom right.
+     */
     public void takeTurn(Game game, String tileId) {
         if (game.getState() != GameState.IN_PROGRESS) {
             return;
@@ -67,12 +67,11 @@ public class GameService {
             return;
         }
 
-        BoardTile tile;
+        final BoardTile tile = getPlayersBoardTile(game.getNextMove());
+
         if (game.getNextMove() == PlayerNumber.PLAYER_1) {
-            tile = BoardTile.X;
             game.setNextMove(PlayerNumber.PLAYER_2);
         } else {
-            tile = BoardTile.O;
             game.setNextMove(PlayerNumber.PLAYER_1);
         }
 
@@ -89,24 +88,30 @@ public class GameService {
         gameRepository.save(game);
     }
 
+    /**
+     * Players use the same letter, return it.
+     * @param playerNumber the player whose letter we want.
+     * @return {@link BoardTile} for the player.
+     */
+    public BoardTile getPlayersBoardTile(PlayerNumber playerNumber) {
+        switch (playerNumber) {
+            case PLAYER_1: return BoardTile.X;
+            case PLAYER_2: return BoardTile.O;
+            default: throw new IllegalArgumentException("What player number is this?" + playerNumber);
+        }
+    }
+
+    /**
+     * Check the game, has anyone won?
+     * @param rows the rows that make up a game.
+     * @return {@link GameState}, PLAYER_1_WIN, PLAYER_2_WIN, IN_PROGRESS, DRAW
+     */
     private GameState evaluateGameState(List<List<String>> rows) {
-        for (List<String> line : BoardUtil.getAllLines(rows)) {
-            String firstTile = line.get(0);
-            if (firstTile.isEmpty()) {
-                continue;
-            }
+        // Get all possible lines
+        final List<List<String>> lines = getAllLines(rows);
 
-            if (line.stream().allMatch(tile -> tile.equals(firstTile))) {
-                return firstTile.equals(BoardTile.X.toString()) ? GameState.PLAYER_1_WIN : GameState.PLAYER_2_WIN;
-            }
-        }
+        // todo - For the given lines, try to establish the correct game state to return
 
-        for (List<String> row : rows) {
-            if (row.stream().anyMatch(String::isEmpty)) {
-                return GameState.IN_PROGRESS;
-            }
-        }
-
-        return GameState.DRAW; // no connected lines for a winner AND all tiles are taken
+        return null;
     }
 }

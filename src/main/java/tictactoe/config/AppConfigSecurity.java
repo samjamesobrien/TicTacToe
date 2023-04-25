@@ -40,8 +40,7 @@ public class AppConfigSecurity extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .deleteCookies("JSESSIONID")
                     .and()
-                .rememberMe()
-                    .key("TheNorthRemembers");
+                .rememberMe();
         //@formatter:on
     }
 }

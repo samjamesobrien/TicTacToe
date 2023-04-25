@@ -1,12 +1,12 @@
 # Tic Tac Toe
 
-A secured web app to play Tic Tac Toe against a dummy computer opponent.
+A secured web app to play Tic Tac Toe against a dummy computer opponent, forked from https://github.com/randomvlad/TicTacToe.git and modified to provide some small interview coding challenges.
 
 ## Features & Notes
 * Play a game on a 3x3 board with an option to go first or after the computer opponent.
 * Computer opponent's AI chooses random squares, except when going first in which case the center tile is always picked.
 * User game data is persisted to an in-memory database. As long as the server is not restarted, a player can leave and return to finish an in-progress game.  
-* App is secured with a username & password login. Database is seeded with two usernames `rick` and `morty`. Both have the same password `pickle`.
+* App is secured with a username & password login. Database is seeded with one username `horatio` with password `hertz`.
 * UI renders each time through a full page refresh in the name of simplicity.
 * For more info about the project and lessons learned, see: [Little Code Gems](docs/code-gems.md).
 * Unit tests: [src/test/java/tictactoe/*](src/test/java/tictactoe)
@@ -17,18 +17,17 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent.
 | __Language__ | Java 11 |
 | __Framework__ | Spring Boot (v2.5) |
 | __Data Layer__ | H2 Database, JPA & Hibernate | 
-| __UI Layer__ | HTML, CSS, Javascript, jQuery (3.6), [Bootstrap](https://getbootstrap.com/) (v5), [Thymeleaf](http://www.thymeleaf.org/) |
+| __UI Layer__ | HTML, CSS, Javascript, jQuery (v3.6), [Bootstrap](https://getbootstrap.com/) (v5), [Thymeleaf](http://www.thymeleaf.org/) |
 | __Testing__ | JUnit 5, Mockito, AssertJ |
 | __Build Tool__ | Gradle (v7.2) |
 
 ## Install & Run
 * Install Java 11.
-* Clone repo: `git clone https://github.com/randomvlad/TicTacToe.git`
-* Navigate `cd TicTacToe` and run applicable [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html#sec:using_wrapper) command:
-  * macOS/Unix: `./gradlew bootRun`
-  * Windows: `gradlew.bat bootRun`
+* Clone repo: `git clone ...`
+* Run with `./run.sh`
+* Test with `./test.sh`
 * Once app is running, go to [http://localhost:8080/tictactoe/](http://localhost:8080/tictactoe/).
-* Log in with username `rick` or `morty` and password `pickle` to play a game.
+* Log in with username `horatio` and password `hertz` to play a game.
 * To end app, kill process in terminal with `CTRL + C`. 
 
 ## Game Screenshots
@@ -37,3 +36,97 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent.
 <img src="docs/images/tictactoe_screenshot_win.png" style="width: 800px; height: 700px;" />
 <br />
 <img src="docs/images/tictactoe_screenshot_loss.png" style="width: 800px; height: 700px;" />
+
+
+# Challenge tasks
+
+We want to do a few things with this repo, which is forked from a working tic tac toe Spring Boot application.
+
+## 1. Getting familiar with the application
+
+### 1.1 Run via the gradle wrapper
+Run the application using `./gradlew bootRun` and navigate to the home page, it's documented above.
+
+### 1.2 Log in
+Use the username "horatio" and password "hertz".
+
+### 1.3 Try to play a game
+It will fail as some code isn't yet written. We'll fix that later.
+
+### 1.4 Stop the application
+Just stop the application from running.
+
+## 2. Add a new user
+
+This repo defines a default user that you just logged in with named "horatio".
+
+Please add an additional user using the same pattern.
+
+## 3. Fix the run.sh script
+
+There is a `run.sh` script in the top of the repo, it should be more convenient than remembering how to run each application we define. There is also a `test.sh` script which is working fine.
+
+`./run.sh` is supposed to run the tests and then run the application.
+
+### 3.1 Fix the script
+It isn't working for some reason when we call `./run.sh` but is when we call `bash run.sh` can you fix it?
+
+### 3.2 (Optional) Open the page automatically
+It would be nice if the browser opened to the expected page for us in this script, can we do that?
+
+## 4. Fix the code & pass the tests
+
+The run script is fixed, but it is obvious that there are failing tests.
+
+Fix or implement the code which is failing.
+
+### 4.1 Implement the BoardUtil.getAllLines(...) method
+The getAllLines method is not complete, once complete the BoardUtilTests will pass.
+
+_This can be solved with simple iteration._
+
+### 4.2 Implement the GameService.evaluateGameState(...) method
+This method is needed for the GameServiceTests to pass.
+
+_Evaluate the state of the board, has anyone won? Is it a draw? Is it in progress?_
+
+## 5. Play the working game
+Do the steps from step 1 again, the game is working and you can play against the computer.
+
+Play a few rounds and see if you can win, lose, draw. Is the computer playing well?
+
+## 6. Improve the Computer players algorithm
+
+The computer makes random moves against the player as it stands. That results in a poor opponent.
+
+### 6.1 The computer tries to block
+
+The computer should try to play a move that blocks the player if they place two moves in a row.
+
+e.g. in the below game, if O goes next, they should not randomly pick, but should block X.
+
+```
+[X, X, _]
+[O, _, _]
+[O, _, _]
+```
+
+Update the computer players algorithm to prioritise blocking 2 in a row.
+
+### 6.2 The computer tries to win
+
+The above improvement tries to block the other player winning, but what if we could win instead?
+
+e.g. In the below game, if O goes next, because of the previous improvment it might try to block X, but it could win outright by making 3 in a row.
+
+```
+[X, X, _]
+[O, O, _]
+[_, _, _]
+```
+
+Update the computer players algorithm to prioritize winning over blocking.
+
+## 7 Play again
+
+Try to beat the computer now!

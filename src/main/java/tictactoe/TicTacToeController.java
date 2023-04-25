@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import tictactoe.game.ComputerPlayerService;
 import tictactoe.user.entity.AppUser;
 import tictactoe.user.entity.AppUserRepository;
 import tictactoe.game.entity.Game;
@@ -19,11 +20,18 @@ public class TicTacToeController {
 
     private final GameService gameService;
 
+    private final ComputerPlayerService computerPlayerService;
+
     private final AppUserRepository appUserRepository;
 
     @Autowired
-    public TicTacToeController(GameService gameService, AppUserRepository appUserRepository) {
+    public TicTacToeController(
+            GameService gameService,
+            ComputerPlayerService computerPlayerService,
+            AppUserRepository appUserRepository) {
+
         this.gameService = gameService;
+        this.computerPlayerService = computerPlayerService;
         this.appUserRepository = appUserRepository;
     }
 
@@ -67,7 +75,7 @@ public class TicTacToeController {
         } else {
             game = gameService.getLastGame(appUser);
             gameService.takeTurn(game, tileId); // Player Turn
-            gameService.takeTurnRandom(game); // Computer Turn
+            computerPlayerService.takeTurn(game); // Computer Turn
         }
 
         setModelGameAttributes(model, game);

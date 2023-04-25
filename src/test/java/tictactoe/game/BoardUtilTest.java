@@ -18,30 +18,6 @@ class BoardUtilTest {
     }
 
     @Test
-    void getRandomAvailableTile_OnlyCenterTileAvailable_PickCenterTile() {
-        List<List<String>> rows = Arrays.asList(//@formatter:off
-                Arrays.asList("x", "o", "x"),
-                Arrays.asList("o", "", "o"),
-                Arrays.asList("x", "o", "x")
-        );//@formatter:on
-
-        String tileId = BoardUtil.getRandomAvailableTile(rows);
-        assertThat(tileId).isEqualTo("1-1");
-    }
-
-    @Test
-    void getRandomAvailableTile_AllTilesTaken_ReturnNull() {
-        List<List<String>> rows = Arrays.asList(//@formatter:off
-                Arrays.asList("x", "o", "x"),
-                Arrays.asList("o", "x", "o"),
-                Arrays.asList("x", "o", "x")
-        );//@formatter:on
-
-        String tileId = BoardUtil.getRandomAvailableTile(rows);
-        assertThat(tileId).isNull();
-    }
-
-    @Test
     void getAllLines_Call_ExpectedEightLines() {
         List<List<String>> rows = Arrays.asList(//@formatter:off
                 Arrays.asList("1", "2", "3"),

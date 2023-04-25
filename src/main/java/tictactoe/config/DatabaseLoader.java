@@ -23,8 +23,7 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        createUser("rick", "pickle");
-        createUser("morty", "pickle");
+        createUser("horatio", "hertz");
     }
 
     private void createUser(String username, String password) {

@@ -1,9 +1,7 @@
 package tictactoe.game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 class BoardUtil {
 
@@ -25,49 +23,23 @@ class BoardUtil {
         return rows;
     }
 
-    public static String getRandomAvailableTile(List<List<String>> rows) {
-        List<String> available = new ArrayList<>();
-
-        for (int rowIndex = 0; rowIndex < rows.size(); rowIndex++) {
-            List<String> row = rows.get(rowIndex);
-
-            for (int columnIndex = 0; columnIndex < rows.size(); columnIndex++) {
-                String tileValue = row.get(columnIndex);
-                if (tileValue.isEmpty()) {
-                    available.add(rowIndex + "-" + columnIndex);
-                }
-            }
-        }
-
-        if (available.isEmpty()) {
-            return null;
-        }
-
-        int randomNum = new Random().nextInt(available.size());
-        return available.get(randomNum);
-
-    }
-
+    /**
+     * There are 8 lines in tic tac toe, 3 horizontal, 3 vertical & 2 diagonal. Any of those 8 may win a game.
+     * @param rows the rows that represent a game in progress.
+     * @return all possible lines of strings.
+     */
     public static List<List<String>> getAllLines(List<List<String>> rows) {
-        List<List<String>> lines = new ArrayList<>();
+        final List<List<String>> lines = new ArrayList<>();
 
+        // Add all rows
         for (int rowIndex = 0; rowIndex < NUMBER_ROWS; rowIndex++) {
             lines.add(rows.get(rowIndex));
         }
 
-        for (int columnIndex = 0; columnIndex < NUMBER_COLUMNS; columnIndex++) {
-            List<String> columnLine = new ArrayList<>();
-            for (List<String> row : rows) {
-                columnLine.add(row.get(columnIndex));
-            }
-            lines.add(columnLine);
-        }
+        // todo - add all columns
 
-        List<String> diagonal1 = Arrays.asList(rows.get(0).get(0), rows.get(1).get(1), rows.get(2).get(2));
-        lines.add(diagonal1);
 
-        List<String> diagonal2 = Arrays.asList(rows.get(0).get(2), rows.get(1).get(1), rows.get(2).get(0));
-        lines.add(diagonal2);
+        // todo - add all diagonals
 
         return lines;
     }
