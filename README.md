@@ -21,22 +21,6 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent, forked 
 | __Testing__ | JUnit 5, Mockito, AssertJ |
 | __Build Tool__ | Gradle (v7.2) |
 
-## Install & Run
-* Install Java 11.
-* Clone repo: `git clone ...`
-* Run with `./run.sh`
-* Test with `./test.sh`
-* Once app is running, go to [http://localhost:8080/tictactoe/](http://localhost:8080/tictactoe/).
-* Log in with username `horatio` and password `hertz` to play a game.
-* To end app, kill process in terminal with `CTRL + C`. 
-
-## Game Screenshots
-<img src="docs/images/tictactoe_screenshot_login.png" style="width: 800px; height: 700px;" />
-<br />
-<img src="docs/images/tictactoe_screenshot_win.png" style="width: 800px; height: 700px;" />
-<br />
-<img src="docs/images/tictactoe_screenshot_loss.png" style="width: 800px; height: 700px;" />
-
 
 # Challenge tasks
 
@@ -45,7 +29,7 @@ We want to do a few things with this repo, which is forked from a working tic ta
 ## 1. Getting familiar with the application
 
 ### 1.1 Run via the gradle wrapper
-Run the application using `./gradlew bootRun` and navigate to the home page, it's documented above.
+Run the application from a terminal using `./gradlew bootRun` and navigate to the home page [http://localhost:8080/tictactoe/](http://localhost:8080/tictactoe/).
 
 ### 1.2 Log in
 Use the username "horatio" and password "hertz".
@@ -64,12 +48,12 @@ Please add an additional user using the same pattern.
 
 ## 3. Fix the run.sh script
 
-There is a `run.sh` script in the top of the repo, it should be more convenient than remembering how to run each application we define. There is also a `test.sh` script which is working fine.
+There is a `run.sh` script in the top of the repo, it should be more convenient than remembering how to run each application we define.
 
-`./run.sh` is supposed to run the tests and then run the application.
+There is also a `test.sh` script which is working fine.
 
 ### 3.1 Fix the script
-It isn't working for some reason when we call `./run.sh` but is when we call `bash run.sh` can you fix it?
+It isn't working for some reason when we call `./run.sh` from a normal terminal, but is working when we call `bash run.sh` can you fix it?
 
 ### 3.2 (Optional) Open the page automatically
 It would be nice if the browser opened to the expected page for us in this script, can we do that?
@@ -80,12 +64,18 @@ The run script is fixed, but it is obvious that there are failing tests.
 
 Fix or implement the code which is failing.
 
-### 4.1 Implement the BoardUtil.getAllLines(...) method
+### 4.1 Run the BoardUtilTests
+Run the BoardUtilTests tests, they should fail
+
+### 4.2 Implement the BoardUtil.getAllLines(...) method
 The getAllLines method is not complete, once complete the BoardUtilTests will pass.
 
 _This can be solved with simple iteration._
 
-### 4.2 Implement the GameService.evaluateGameState(...) method
+### 4.3 Run the GameServiceTests
+Run the GameServiceTests tests, they should fail
+
+### 4.4 Implement the GameService.evaluateGameState(...) method
 This method is needed for the GameServiceTests to pass.
 
 _Evaluate the state of the board, has anyone won? Is it a draw? Is it in progress?_
@@ -130,3 +120,7 @@ Update the computer players algorithm to prioritize winning over blocking.
 ## 7 Play again
 
 Try to beat the computer now!
+
+## 8 (Optional) Are there any refactors or other improvements you could suggest?
+
+No need to implement, just identify some improvements you might suggest.
