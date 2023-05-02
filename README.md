@@ -48,15 +48,12 @@ Please add an additional user using the same pattern.
 
 ## 3. Fix the run.sh script
 
-There is a `run.sh` script in the top of the repo, it should be more convenient than remembering how to run each application we define.
+There is a `run.sh` script in the top of the repo, it won't work when we call `./run.sh` from our terminal.
 
 There is also a `test.sh` script which is working fine.
 
 ### 3.1 Fix the script
-It isn't working for some reason when we call `./run.sh` from a normal terminal, but is working when we call `bash run.sh` can you fix it?
-
-### 3.2 (Optional) Open the page automatically
-It would be nice if the browser opened to the expected page for us in this script, can we do that?
+It isn't working for some reason when we call `./run.sh` from a normal terminal, but is working when we call `bash run.sh` can you fix it? Is there a problem with the file permissions?
 
 ## 4. Fix the code & pass the tests
 
@@ -89,7 +86,11 @@ Play a few rounds and see if you can win, lose, draw. Is the computer playing we
 
 The computer makes random moves against the player as it stands. That results in a poor opponent.
 
-### 6.1 The computer tries to block
+### 6.1 Enable the Computer player tests
+
+In `ComputerPlayerServiceTest` enable the commented out tests, run them, some should fail.
+
+### 6.2 The computer tries to block
 
 The computer should try to play a move that blocks the player if they place two moves in a row.
 
@@ -103,7 +104,7 @@ e.g. in the below game, if O goes next, they should not randomly pick, but shoul
 
 Update the computer players algorithm to prioritise blocking 2 in a row.
 
-### 6.2 The computer tries to win
+### 6.3 The computer tries to win
 
 The above improvement tries to block the other player winning, but what if we could win instead?
 
