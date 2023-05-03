@@ -48,12 +48,12 @@ Please add an additional user using the same pattern.
 
 ## 3. Fix the run.sh script
 
-There is a `run.sh` script in the top of the repo, it won't work when we call `./run.sh` from our terminal.
-
-There is also a `test.sh` script which is working fine.
+There is a `run.sh` and `test.sh` script in the top directory of the repo.
 
 ### 3.1 Fix the script
-It isn't working for some reason when we call `./run.sh` from a normal terminal, but is working when we call `bash run.sh` can you fix it? Is there a problem with the file permissions?
+It isn't working for some reason when we call `./run.sh` from a normal terminal, but is working when we call `bash run.sh` can you fix it?
+
+Is there a problem with the file permissions?
 
 ## 4. Fix the code & pass the tests
 
