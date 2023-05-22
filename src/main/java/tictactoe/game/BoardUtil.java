@@ -1,6 +1,7 @@
 package tictactoe.game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class BoardUtil {
@@ -33,7 +34,8 @@ class BoardUtil {
 
         // Add all rows
         for (int rowIndex = 0; rowIndex < NUMBER_ROWS; rowIndex++) {
-            lines.add(rows.get(rowIndex));
+            final List<String> line = new ArrayList<>(rows.get(rowIndex));
+            lines.add(line);
         }
 
         // todo - add all columns
