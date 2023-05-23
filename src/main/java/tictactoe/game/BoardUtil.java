@@ -26,7 +26,12 @@ class BoardUtil {
 
     /**
      * There are 8 lines in tic tac toe, 3 horizontal, 3 vertical & 2 diagonal. Any of those 8 may win a game.
-     * @param rows the rows that represent a game in progress. e.g. [ ["x", "o", ""], ["x", "o", ""], ["", "", ""] ]
+     * @param rows the rows that represent a game in progress. e.g.
+     *         [
+     *             ["x", "o", ""],
+     *             ["x", "o", ""],
+     *             ["", "", ""]
+     *         ]
      * @return all possible lines of strings.
      */
     public static List<List<String>> getAllLines(List<List<String>> rows) {
