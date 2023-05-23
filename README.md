@@ -67,7 +67,7 @@ Run the BoardUtilTests tests, they should fail
 ### 4.2 Implement the BoardUtil.getAllLines(...) method
 The getAllLines method is not complete, once complete the BoardUtilTests will pass.
 
-_This can be solved with simple iteration._
+_This can be solved with iteration._
 
 ### 4.3 Run the GameServiceTests
 Run the GameServiceTests tests, they should fail
