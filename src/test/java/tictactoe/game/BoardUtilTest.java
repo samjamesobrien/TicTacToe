@@ -25,7 +25,7 @@ class BoardUtilTest {
                 Arrays.asList("7", "8", "9")
         );//@formatter:on
 
-        List<List<String>> lines = BoardUtil.getAllLines(rows);
+        List<List<String>> lines = BoardUtil.getAllPossibleLines(rows);
         assertThat(lines).hasSize(8);
 
         // rows

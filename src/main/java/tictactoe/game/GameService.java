@@ -11,7 +11,7 @@ import tictactoe.game.entity.Game.PlayerType;
 import tictactoe.game.entity.GameRepository;
 import tictactoe.user.entity.AppUser;
 
-import static tictactoe.game.BoardUtil.getAllLines;
+import static tictactoe.game.BoardUtil.getAllPossibleLines;
 
 @Service
 public class GameService {
@@ -108,7 +108,7 @@ public class GameService {
      */
     private GameState evaluateGameState(List<List<String>> rows) {
         // Get all possible lines
-        final List<List<String>> lines = getAllLines(rows);
+        final List<List<String>> lines = getAllPossibleLines(rows);
 
         // todo - For the given lines, try to establish the correct game state to return
 

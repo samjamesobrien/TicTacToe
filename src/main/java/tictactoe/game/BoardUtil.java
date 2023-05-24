@@ -1,7 +1,6 @@
 package tictactoe.game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class BoardUtil {
@@ -25,16 +24,16 @@ class BoardUtil {
     }
 
     /**
-     * There are 8 lines in tic tac toe, 3 horizontal, 3 vertical & 2 diagonal. Any of those 8 may win a game.
+     * There are 8 possible lines in tic tac toe, 3 horizontal, 3 vertical & 2 diagonal. Any of those 8 may win a game.
      * @param rows the rows that represent a game in progress. e.g.
      *         [
      *             ["x", "o", ""],
      *             ["x", "o", ""],
      *             ["", "", ""]
      *         ]
-     * @return all possible lines of strings.
+     * @return all possible lines of strings through the game board.
      */
-    public static List<List<String>> getAllLines(List<List<String>> rows) {
+    public static List<List<String>> getAllPossibleLines(List<List<String>> rows) {
         final List<List<String>> lines = new ArrayList<>();
 
         // Add all rows
