@@ -35,11 +35,9 @@ public class ComputerPlayerService {
 
         tileId = this.getRandomEmptyTile(game);
 
-        if (tileId == null) {
-            throw new IllegalStateException("There must be a target tile at the stage!");
+        if (tileId != null) {
+            this.gameService.takeTurn(game, tileId);
         }
-
-        this.gameService.takeTurn(game, tileId);
     }
 
     /**
