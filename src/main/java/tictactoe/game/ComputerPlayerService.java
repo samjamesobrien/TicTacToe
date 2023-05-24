@@ -41,7 +41,7 @@ public class ComputerPlayerService {
     }
 
     /**
-     * For the game in progress, is there a blocking tile we should play to prevent the oponent winning?
+     * For the game in progress, is there a blocking tile we should play to prevent the opponent winning?
      * @param game {@link Game} the game state, including who plays next.
      * @return nullable {@link String} in the format "{row index}-{column index}".
      */
