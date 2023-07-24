@@ -37,20 +37,20 @@ class BoardUtilTest {
                 Arrays.asList("g", "h", "i")
         );//@formatter:on
 
-        final List<List<String>> lines = BoardUtil.getAllPossibleLines(rows);
+        final List<List<String>> allPossibleLines = BoardUtil.getAllPossibleLines(rows);
 
         // rows
-        assertThat(lines.get(0)).containsExactly("a", "b", "c");
-        assertThat(lines.get(1)).containsExactly("d", "e", "f");
-        assertThat(lines.get(2)).containsExactly("g", "h", "i");
+        assertThat(allPossibleLines.get(0)).containsExactly("a", "b", "c");
+        assertThat(allPossibleLines.get(1)).containsExactly("d", "e", "f");
+        assertThat(allPossibleLines.get(2)).containsExactly("g", "h", "i");
 
         // columns
-        assertThat(lines.get(3)).containsExactly("a", "d", "g");
-        assertThat(lines.get(4)).containsExactly("b", "e", "h");
-        assertThat(lines.get(5)).containsExactly("g", "h", "i");
+        assertThat(allPossibleLines.get(3)).containsExactly("a", "d", "g");
+        assertThat(allPossibleLines.get(4)).containsExactly("b", "e", "h");
+        assertThat(allPossibleLines.get(5)).containsExactly("c", "f", "i");
 
         // diagonals
-        assertThat(lines.get(6)).containsExactly("a", "e", "i");
-        assertThat(lines.get(7)).containsExactly("c", "e", "g");
+        assertThat(allPossibleLines.get(6)).containsExactly("a", "e", "i");
+        assertThat(allPossibleLines.get(7)).containsExactly("c", "e", "g");
     }
 }
