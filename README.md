@@ -56,7 +56,7 @@ Is there a problem with the file permissions?
 
 The run script is fixed, but it is obvious that there are failing tests.
 
-Fix or implement the code which is failing.
+Fix or implement the code which is failing, the tests themselves are correct and don't need to change.
 
 ### 4.1 Run the BoardUtilTests
 Run the BoardUtilTests tests, they should fail

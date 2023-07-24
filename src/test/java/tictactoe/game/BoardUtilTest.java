@@ -20,28 +20,37 @@ class BoardUtilTest {
     @Test
     void getAllLines_Call_ExpectedEightLines() {
         List<List<String>> rows = Arrays.asList(//@formatter:off
-                Arrays.asList("1", "2", "3"),
-                Arrays.asList("4", "5", "6"),
-                Arrays.asList("7", "8", "9")
+                Arrays.asList("", "", ""),
+                Arrays.asList("", "", ""),
+                Arrays.asList("", "", "")
         );//@formatter:on
 
-        List<List<String>> lines = BoardUtil.getAllPossibleLines(rows);
+        final List<List<String>> allPossibleLines = BoardUtil.getAllPossibleLines(rows);
+        assertThat(allPossibleLines).hasSize(8);
+    }
+
+    @Test
+    void getAllLines_Call_ReturnsCorrectLines() {
+        List<List<String>> rows = Arrays.asList(//@formatter:off
+                Arrays.asList("a", "b", "c"),
+                Arrays.asList("d", "e", "f"),
+                Arrays.asList("g", "h", "i")
+        );//@formatter:on
+
+        final List<List<String>> lines = BoardUtil.getAllPossibleLines(rows);
 
         // rows
-        assertThat(lines.get(0)).containsExactly("1", "2", "3");
-        assertThat(lines.get(1)).containsExactly("4", "5", "6");
-        assertThat(lines.get(2)).containsExactly("7", "8", "9");
+        assertThat(lines.get(0)).containsExactly("a", "b", "c");
+        assertThat(lines.get(1)).containsExactly("d", "e", "f");
+        assertThat(lines.get(2)).containsExactly("g", "h", "i");
 
         // columns
-        assertThat(lines.get(3)).containsExactly("1", "4", "7");
-        assertThat(lines.get(4)).containsExactly("2", "5", "8");
-        assertThat(lines.get(5)).containsExactly("3", "6", "9");
+        assertThat(lines.get(3)).containsExactly("a", "d", "g");
+        assertThat(lines.get(4)).containsExactly("b", "e", "h");
+        assertThat(lines.get(5)).containsExactly("g", "h", "i");
 
         // diagonals
-        assertThat(lines.get(6)).containsExactly("1", "5", "9");
-        assertThat(lines.get(7)).containsExactly("3", "5", "7");
-
-        // Total number of Lists returned is 8
-        assertThat(lines).hasSize(8);
+        assertThat(lines.get(6)).containsExactly("a", "e", "i");
+        assertThat(lines.get(7)).containsExactly("c", "e", "g");
     }
 }

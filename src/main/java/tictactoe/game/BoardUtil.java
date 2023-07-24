@@ -34,12 +34,12 @@ class BoardUtil {
      * @return all possible lines of strings through the game board.
      */
     public static List<List<String>> getAllPossibleLines(List<List<String>> rows) {
-        final List<List<String>> lines = new ArrayList<>();
+        final List<List<String>> allPossibleLines = new ArrayList<>();
 
         // Add all rows
         for (int rowIndex = 0; rowIndex < NUMBER_ROWS; rowIndex++) {
             final List<String> line = new ArrayList<>(rows.get(rowIndex));
-            lines.add(line);
+            allPossibleLines.add(line);
         }
 
         // todo - add all columns
@@ -47,6 +47,6 @@ class BoardUtil {
 
         // todo - add all diagonals
 
-        return lines;
+        return allPossibleLines;
     }
 }
