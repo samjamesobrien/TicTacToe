@@ -26,7 +26,6 @@ class BoardUtilTest {
         );//@formatter:on
 
         List<List<String>> lines = BoardUtil.getAllPossibleLines(rows);
-        assertThat(lines).hasSize(8);
 
         // rows
         assertThat(lines.get(0)).containsExactly("1", "2", "3");
@@ -41,5 +40,8 @@ class BoardUtilTest {
         // diagonals
         assertThat(lines.get(6)).containsExactly("1", "5", "9");
         assertThat(lines.get(7)).containsExactly("3", "5", "7");
+
+        // Total number of Lists returned is 8
+        assertThat(lines).hasSize(8);
     }
 }
