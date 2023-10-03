@@ -18,18 +18,6 @@ class BoardUtilTest {
     }
 
     @Test
-    void getAllLines_Call_ExpectedEightLines() {
-        List<List<String>> rows = Arrays.asList(//@formatter:off
-                Arrays.asList("", "", ""),
-                Arrays.asList("", "", ""),
-                Arrays.asList("", "", "")
-        );//@formatter:on
-
-        final List<List<String>> allPossibleLines = BoardUtil.getAllPossibleLines(rows);
-        assertThat(allPossibleLines).hasSize(8);
-    }
-
-    @Test
     void getAllLines_Call_ReturnsCorrectLines() {
         List<List<String>> rows = Arrays.asList(//@formatter:off
                 Arrays.asList("a", "b", "c"),
@@ -52,5 +40,8 @@ class BoardUtilTest {
         // diagonals
         assertThat(allPossibleLines.get(6)).containsExactly("a", "e", "i");
         assertThat(allPossibleLines.get(7)).containsExactly("c", "e", "g");
+
+        // Overall size
+        assertThat(allPossibleLines).hasSize(8);
     }
 }
