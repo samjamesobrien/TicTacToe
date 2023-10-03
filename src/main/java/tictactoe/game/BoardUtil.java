@@ -36,11 +36,8 @@ class BoardUtil {
     public static List<List<String>> getAllPossibleLines(List<List<String>> rows) {
         final List<List<String>> allPossibleLines = new ArrayList<>();
 
-        // Add all rows
-        for (int rowIndex = 0; rowIndex < NUMBER_ROWS; rowIndex++) {
-            final List<String> line = new ArrayList<>(rows.get(rowIndex));
-            allPossibleLines.add(line);
-        }
+        // todo - add all rows
+
 
         // todo - add all columns
 
