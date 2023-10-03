@@ -56,15 +56,15 @@ Is there a problem with the file permissions?
 
 The run script is fixed, but it is obvious that there are failing tests.
 
-Fix or implement the code which is failing, the tests themselves are correct and don't need to change.
+Fix or implement the code which is failing, **the tests themselves are correct and don't need to change.**
+
+_Read the javadoc_
 
 ### 4.1 Run the BoardUtilTests
 Run the BoardUtilTests tests, they should fail
 
 ### 4.2 Implement the BoardUtil.getAllLines(...) method
 The getAllLines method is not complete, once complete the BoardUtilTests will pass.
-
-_This can be solved with iteration._
 
 ### 4.3 Run the GameServiceTests
 Run the GameServiceTests tests, they should fail
