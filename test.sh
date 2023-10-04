@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-./gradlew test
+./gradlew test --info
