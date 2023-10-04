@@ -26,11 +26,6 @@ class BoardUtilTest {
         );//@formatter:on
 
         final List<List<String>> allPossibleLines = BoardUtil.getAllPossibleLines(rows);
-        assertThat(allPossibleLines.size())
-                .withFailMessage(() -> String.format(
-                        "There are 8 possible lines through a tic-tac-toe board, got: %s", allPossibleLines.size())
-                )
-                .isEqualTo(8);
 
         // rows
         assertThat(allPossibleLines.get(0)).containsExactly("a", "b", "c");
@@ -47,6 +42,10 @@ class BoardUtilTest {
         assertThat(allPossibleLines.get(7)).containsExactly("c", "e", "g");
 
         // Overall size
-        assertThat(allPossibleLines).hasSize(8);
+        assertThat(allPossibleLines.size())
+                .withFailMessage(() -> String.format(
+                        "There are 8 possible lines through a tic-tac-toe board, got: %s", allPossibleLines.size())
+                )
+                .isEqualTo(8);
     }
 }
