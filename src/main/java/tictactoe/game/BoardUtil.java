@@ -37,10 +37,11 @@ class BoardUtil {
         final List<List<String>> allPossibleLines = new ArrayList<>();
 
         // todo - add all rows
+        // hint - the gameRows are already rows, copy & add them to allPossibleLines
 
 
         // todo - add all columns
-
+        // hint - we need to construct 3 columns
 
         // todo - add all diagonals
 
