@@ -19,13 +19,13 @@ class BoardUtilTest {
 
     @Test
     void getAllLines_Call_ReturnsCorrectLines() {
-        List<List<String>> rows = Arrays.asList(//@formatter:off
+        List<List<String>> gameStateAsRows = Arrays.asList(//@formatter:off
                 Arrays.asList("a", "b", "c"),
                 Arrays.asList("d", "e", "f"),
                 Arrays.asList("g", "h", "i")
         );//@formatter:on
 
-        final List<List<String>> allPossibleLines = BoardUtil.getAllPossibleLines(rows);
+        final List<List<String>> allPossibleLines = BoardUtil.getAllPossibleLines(gameStateAsRows);
 
         // rows
         assertThat(allPossibleLines.get(0)).containsExactly("a", "b", "c");
