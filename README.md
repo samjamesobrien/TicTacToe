@@ -62,10 +62,10 @@ _Tip: The tests themselves are correct and don't need to change._
 
 _Tip: Read the javadoc and the tests._
 
-### 4.1 Implement the BoardUtil.getAllLines(...) method
+### 4.1 Implement the BoardUtil.getAllPossibleLines(...) method
 Run the BoardUtilTest tests, they should fail
 
-The getAllLines method is not complete, once complete the BoardUtilTest tests will pass.
+The getAllPossibleLines method is not complete, once complete the BoardUtilTest tests will pass.
 
 ### 4.2 Implement the GameService.evaluateGameState(...) method
 Run the GameServiceTest tests, they should fail
