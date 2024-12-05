@@ -18,16 +18,15 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent, forked 
 | __Testing__ | JUnit 5, Mockito, AssertJ |
 | __Build Tool__ | Gradle (v7.2) |
 
-
-# Challenge tasks
-
-We want to do a few things with this repo, which is forked from a working tic tac toe Spring Boot application.
-
-## Challenge rules
+# Challenge rules
 
 - You can use search engines for everything _except_ the algorithm solutions.
 - We'll spend some time getting the project imported to your IDE until you can hit a breakpoint in a test, this can take 15 minutes
 - In the live version of this test (in a call) you won't be expected to finish the whole challenge.
+
+# Challenge tasks
+
+We want to do a few things with this repo, which is forked from a working tic tac toe Spring Boot application.
 
 ## 1. Getting familiar with the application
 
