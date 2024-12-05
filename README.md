@@ -5,7 +5,7 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent, forked 
 ## Features & Notes
 * Play a game on a 3x3 board with an option to go first or after the computer opponent.
 * Computer opponent's AI chooses random squares, except when going first in which case the center tile is always picked.
-* User game data is persisted to an in-memory database. As long as the server is not restarted, a player can leave and return to finish an in-progress game.  
+* User game data is persisted to an in-memory database. As long as the server is not restarted, a player can leave and return to finish an in-progress game.
 * App is secured with a username & password login. Database is seeded with one username `horatio` with password `hertz`.
 
 ## Tech Stack
@@ -22,6 +22,12 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent, forked 
 # Challenge tasks
 
 We want to do a few things with this repo, which is forked from a working tic tac toe Spring Boot application.
+
+## Challenge rules
+
+We'll spend some time getting the project imported to your IDE until you can hit a breakpoint in a test, this can take 15 minutes
+You can use search engines for everything _except_ the algorythm solutions.
+In the live version of this test (in a call) you won't be expected to finish the whole challenge.
 
 ## 1. Getting familiar with the application
 
@@ -45,16 +51,7 @@ Please add an additional user using the same pattern.
 
 _Tip: Simple implementation is fine, copy the implementation that added Horatio._
 
-## 3. Fix the run.sh script
-
-There is a `run.sh` and `test.sh` script in the top directory of the repo.
-
-### 3.1 Fix the script
-It isn't working for some reason when we call `./run.sh` from a normal terminal, but is working when we call `bash run.sh` can you fix it?
-
-_Hint: Is there a problem with the file permissions?_
-
-## 4. Fix the code & pass the tests
+## 3. Fix the code & pass the tests
 
 The run script is fixed, but it is obvious that there are failing tests.
 
@@ -62,32 +59,32 @@ _Tip: The tests themselves are correct and don't need to change._
 
 _Tip: Read the javadoc and the tests._
 
-### 4.1 Implement the BoardUtil.getAllPossibleLines(...) method
+### 3.1 Implement the BoardUtil.getAllLines(...) method
 Run the BoardUtilTest tests, they should fail
 
-The getAllPossibleLines method is not complete, once complete the BoardUtilTest tests will pass.
+The getAllLines method is not complete, once complete the BoardUtilTest tests will pass.
 
-### 4.2 Implement the GameService.evaluateGameState(...) method
+### 3.2 Implement the GameService.evaluateGameState(...) method
 Run the GameServiceTest tests, they should fail
 
 This method is needed for the GameServiceTest to pass.
 
 _Evaluate the state of the board, has anyone won? Is it a draw? Is it in progress?_
 
-## 5. Play the working game
+## 4. Play the working game
 Do the steps from step 1 again, the game is working and you can play against the computer.
 
 Play a few rounds and see if you can win, lose, draw. Is the computer playing well?
 
-## 6. Improve the Computer players algorithm
+## 5. Improve the Computer players algorithm
 
 The computer makes random moves against the player as it stands. That results in a poor opponent.
 
-### 6.1 Enable the Computer player tests
+### 5.1 Enable the Computer player tests
 
 In `ComputerPlayerServiceTest` enable the commented out tests, run them, some should fail.
 
-### 6.2 The computer tries to block
+### 5.2 The computer tries to block
 
 The computer should try to play a move that blocks the player if they place two moves in a row.
 
@@ -101,7 +98,7 @@ e.g. in the below game, if O goes next, they should not randomly pick, but shoul
 
 Update the computer players algorithm to prioritise blocking 2 in a row.
 
-### 6.3 The computer tries to win
+### 5.3 The computer tries to win
 
 The above improvement tries to block the other player winning, but what if we could win instead?
 
@@ -115,10 +112,10 @@ e.g. In the below game, if O goes next, because of the previous improvment it mi
 
 Update the computer players algorithm to prioritize winning over blocking.
 
-## 7 Play again
+## 6 Play again
 
 Try to beat the computer now!
 
-## 8 (Optional) Are there any refactors or other improvements you could suggest?
+## 7 (Optional) Are there any refactors or other improvements you could suggest?
 
 No need to implement, just identify some improvements you might suggest.
