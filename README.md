@@ -9,14 +9,14 @@ A secured web app to play Tic Tac Toe against a dummy computer opponent, forked 
 * App is secured with a username & password login. Database is seeded with one username `horatio` with password `hertz`.
 
 ## Tech Stack
-| | Technology |
-|---|---|
-| __Language__ | Java 11 |
-| __Framework__ | Spring Boot (v2.5) |
-| __Data Layer__ | H2 Database, JPA & Hibernate | 
+| | Technology                                                                                                                |
+|---|---------------------------------------------------------------------------------------------------------------------------|
+| __Language__ | Java 8                                                                                                                    |
+| __Framework__ | Spring Boot (v2.5)                                                                                                        |
+| __Data Layer__ | H2 Database, JPA & Hibernate                                                                                              | 
 | __UI Layer__ | HTML, CSS, Javascript, jQuery (v3.6), [Bootstrap](https://getbootstrap.com/) (v5), [Thymeleaf](http://www.thymeleaf.org/) |
-| __Testing__ | JUnit 5, Mockito, AssertJ |
-| __Build Tool__ | Gradle (v7.2) |
+| __Testing__ | JUnit 5, Mockito, AssertJ                                                                                                 |
+| __Build Tool__ | Gradle (v7.2)                                                                                                             |
 
 # Challenge rules
 
