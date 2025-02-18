@@ -48,17 +48,19 @@ This repo defines a default user that you just logged in with named "horatio".
 
 Please add an additional user using the same pattern.
 
+Is this method secure? What do you see wrong?
+
 _Tip: Simple implementation is fine, copy the implementation that added Horatio._
 
 ## 3. Fix the code & pass the tests
 
-The run script is fixed, but it is obvious that there are failing tests.
+There are failing tests because some of the code is not implemented.
 
 _Tip: The tests themselves are correct and don't need to change._
 
 _Tip: Read the javadoc and the tests._
 
-### 3.1 Implement the BoardUtil.getAllLines(...) method
+### 3.1 Implement the BoardUtil.getAllPossibleLines(...) method
 Run the BoardUtilTest tests, they should fail
 
 The getAllLines method is not complete, once complete the BoardUtilTest tests will pass.
